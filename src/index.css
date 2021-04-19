@@ -1,13 +1,345 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+	background: #fff;
+	font-family: sans-serif;
+	font-weight: 500;
+}
+
+a {
+	text-decoration: none;
+}
+
+button {
+	cursor: pointer;
+	outline: none !important;
+	background: transparent;
+	border: none;
+}
+
+button:active {
+	transform: scale(0.8);
+}
+
+header {
+	border-bottom: 1px solid #777;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 4rem;
+}
+
+.home {
+	color: #f1356d;
+	font-weight: 700;
+	font-size: 2.5rem;
+	transition: 0.2s;
+}
+
+.home:hover {
+	text-shadow: 1px 1px 2px #666;
+}
+
+.adds {
+	display: flex;
+	justify-content: space-around;
+}
+
+.adds a {
+	padding: 0 7px !important;
+	color: #777;
+}
+
+.adds a:hover {
+	color: #f1356d;
+}
+
+main {
+	min-height: 70vh;
+	width: 100%;
+	padding: 0 2rem;
+	display: flex;
+	flex-direction: row;
+	background: #ddd;
+	align-items: flex-start;
+}
+
+article {
+	padding: 1rem;
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+}
+
+.blog {
+	padding: 1rem 1.4rem;
+	background: #fff;
+	width: 90%;
+	margin: 10px auto !important;
+	border-radius: 7px;
+	position: relative;
+}
+
+.blog a {color: #f1356d;}
+.blog a:hover {color: #d1154d;}
+
+.blog p {
+	color: #555;
+	padding-top: 5px;
+}
+
+.blog:hover .remotes, .blog:focus .remotes {
+	opacity: 1;
+	z-index: 1;
+}
+
+.remotes {
+	position: absolute;
+	right: 1.4rem;
+	display: flex;
+	flex-direction: row;
+	opacity: 0;
+	z-index: -1;
+	transition: 0.3s;
+}
+
+.inner-remotes {
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row;
+	transition: 0.3s;
+}
+
+.remotes * {
+	color: #d1154d;
+	margin: 0 3px;
+}
+
+.inner-remotes * {
+	color: #d1154d;
+	font-size: 1.5rem;
+	padding: 3px;
+	border-radius: 5px;
+}
+
+.inner-remotes *:hover, .inner-remotes *:hover * {
+	background: #d1154d;
+	color: #fff;
+}
+
+.extras {
+	width: 100%;
+	margin-top: 10px;
+	padding: 10px;
+	padding-bottom: 0;
+	font-size: 0.9rem;
+	border-top: 1px solid #777;
+}
+
+.extras * {padding: 0 5px;}
+.extras a {color: #f1356d;}
+
+aside {
+	padding: 1.5rem 1rem;
+	width: 29%;
+	background: #fff;
+	margin: 2rem 0;
+	box-shadow: 3px 3px 10px #777;
+}
+
+aside h2 {
+	color: #f1356d;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+aside .category {
+	width: 100%;
+	border-top: 1px solid #777;
+	padding: 0.5rem;
+}
+
+aside .category a {
+	color: #f1356d;
+	font-weight: bold;
+}
+
+aside .category p {
+	font-size: 0.85rem;
+}
+
+footer {
+	padding: 2rem 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	flex-direction: column;
+	color: #fff;
+	background: #f1356d;
+	font-size: 1.4rem;
+}
+
+/* View Blog Container */
+
+.view-blog {
+	background: #fff;
+	position: relative;
+	padding: 1rem;
+}
+
+.view-blog h2 {
+	text-align: center;
+	color: #f1356d;
+}
+
+.view-blog .tags {
+	color: #555;
+	padding: 0.5rem;
+}
+
+.view-blog .category {
+	color: #6d35f1;
+	font-size: 1.2rem;
+}
+
+.view-blog .category:hover {
+	text-decoration: underline;
+}
+
+.view-blog .text {
+	color: #555;
+	font-size: 1rem;
+	font-style: normal;
+}
+
+.view-blog .dates {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+}
+
+
+
+/* Add Form*/
+
+.add-form {
+	width: 70%;
+	margin: 2rem auto !important;
+	background: #fff;
+	padding: 1.5rem;
+	border-radius: 1rem;
+	box-shadow: 2px 2px 8px #999;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.add-form h2 {
+	color: #f1356d;
+	text-align: center
+}
+
+.add-form label {
+	font-size: 1.2rem;
+	color: #555;
+}
+
+.add-form input {
+	outline: none !important;
+	transition: 0.2s;
+}
+
+.add-form input[type=text] {
+	width: 20rem;
+	border: 1.5px solid #fff;
+	border-bottom-color: #777;
+	padding: 0.3rem 0.6rem;
+	border-radius: 0.2rem;
+	font-size: 1rem;
+}
+.add-form input[type=text]:focus {border-color: #777;}
+
+.add-form textarea {
+	width: 80%;
+	outline: none !important;
+	padding: 0.3rem 0.6rem;
+	height: 16rem;
+}
+
+.add-form select {
+	width: 20rem;
+	outline: none !important;
+	padding: 0.3rem 0.6rem;
+	font-size: 1rem;
+}
+ 
+.add-form input[type=submit] {
+	margin: 0 auto;
+	cursor: pointer;
+	border: 2px solid #f1356d;
+	border-radius: 0.3rem;
+	padding: 0.3rem 0.5rem;
+	font-size: 1.2rem;
+	color: #f1356d;
+	background: #fff;
+	font-weight: 600;
+}
+
+.add-form input[type=submit]:hover {
+	border-color: #fff;
+	color: #fff;
+	background: #f1356d;
+}
+
+.add-form input[type=submit]:active {
+	transform: scale(0.9);
+}
+
+/*Loading animation */
+
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 30% 50%;
+  transform: translate(-50%,-50%);
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #f1356d;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
 }
